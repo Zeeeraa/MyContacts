@@ -36,15 +36,20 @@ namespace MyContacts.Model
 
         }
 
-
+        public async Task AddContact(ContactInfo contact)
+        {
+            await contactDatabase.InsertContact(contact);
+        }
         public async Task InsertContact(ContactInfo contact)
         {
             await Init();
             await Database.InsertAsync(contact);
+        }
+
 
            
 
-        }
+
         public async Task<ContactInfo> GetContactByIdAsync(int id)
         {
             await Init();
@@ -55,16 +60,17 @@ namespace MyContacts.Model
 
         }
 
-        public async Task DeleteContact(ContactInfo contact) { 
-            
+         public async Task DeleteContact(ContactInfo contact)
+        {
 
-            await Init(); 
 
-            await Database.DeleteAsync(contact);await Init(); 
+            await Init();
+
+            await Database.DeleteAsync(contact); await Init();
 
             await Database.DeleteAsync(contact);
         }
     }
 
 
- }
+}
