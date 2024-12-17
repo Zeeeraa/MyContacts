@@ -25,8 +25,8 @@ public partial class AddContactPage : ContentPage
         contact.Email = EmailEntry.Text;
 
         ContactsRepository repository = new ContactsRepository();
-       await repository.AddContact(contact);
-       await Shell.Current.GoToAsync("..");
+        repository.AddContact(contact);
+        Shell.Current.GoToAsync("..");
 
     }
 }

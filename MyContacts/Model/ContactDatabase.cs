@@ -36,10 +36,7 @@ namespace MyContacts.Model
 
         }
 
-        public async Task AddContact(ContactInfo contact)
-        {
-            await contactDatabase.InsertContact(contact);
-        }
+        
         public async Task InsertContact(ContactInfo contact)
         {
             await Init();
@@ -60,7 +57,12 @@ namespace MyContacts.Model
 
         }
 
-         public async Task DeleteContact(ContactInfo contact)
+        public async Task UpdateContact(ContactInfo contact)
+        {
+            await Init(); // Ensure database is initialized
+            await Database.UpdateAsync(contact); // Update the contact
+        }
+        public async Task DeleteContact(ContactInfo contact)
         {
 
 

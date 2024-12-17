@@ -33,10 +33,7 @@ namespace MyContacts.Model
         {
             return contacts.FirstOrDefault(c => c.Id == id);
         }
-        public async Task AddContact(ContactInfo contact)
-        {
-            await contactDatabase.InsertContact(contact);
-        }
+
         public async Task Update(ContactInfo updatedContact)
         {
             var existingContact = contacts.FirstOrDefault(c => c.Id == updatedContact.Id);
